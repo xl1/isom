@@ -26,15 +26,15 @@ export class Mapchip implements Renderable {
         r.quad(
             this.wallColor,
             { x: x + 1, y,        z },
-            { x: x + 1, y,        z: z - 1 },
-            { x: x + 1, y: y + 1, z: z - 1 },
+            { x: x + 1, y,        z: z - 4 },
+            { x: x + 1, y: y + 1, z: z - 4 },
             { x: x + 1, y: y + 1, z }
         );
         r.quad(
             this.wallColor,
             { x: x + 1, y: y + 1, z },
-            { x: x + 1, y: y + 1, z: z - 1 },
-            { x,        y: y + 1, z: z - 1 },
+            { x: x + 1, y: y + 1, z: z - 4 },
+            { x,        y: y + 1, z: z - 4 },
             { x,        y: y + 1, z }
         );
         return true;

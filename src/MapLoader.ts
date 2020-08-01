@@ -1,20 +1,25 @@
 import { Mapchip } from "./Mapchip.js";
 
-const width = 5, length = 5, hMap = `
-_555_
-44444
-33333
-22222
-_111_
-`.trim();
+const colors = [
+    [0x33EE00, 0x996600],
+    [0xEECC22, 0x996600],
+    [0xBBBBBB, 0x888888],
+];
 
 export class MapLoader {
-    *load(): IterableIterator<Mapchip> {
+    *load(hMap: string, cMap: string): IterableIterator<Mapchip> {
+        const hLines = hMap.split('\n');
+        const cLines = cMap.split('\n');
+        const width = Math.max(...hLines.map(e => e.length));
+        const height = hLines.length;
+
         for (let x = 0; x < width; x++)
-        for (let y = 0; y < length; y++) {
-            const z = +hMap[x + y * (width + 1)];
-            if (!isNaN(z)) {
-                yield new Mapchip(0x33EE00, 0x668800, { x, y, z });
+        for (let y = 0; y < height; y++) {
+            const z = +hLines[y][x];
+            const c = +cLines[y][x];
+            if (!isNaN(z) && !isNaN(c)) {
+                const [floorColor, wallColor] = colors[c] || colors[0];
+                yield new Mapchip(floorColor, wallColor, { x, y, z });
             }
         }
     }
