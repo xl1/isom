@@ -18,13 +18,11 @@ export class Renderer {
         this.ctx.clearRect(0, 0, width, height);
     }
 
-    quad(color: number, p: Position, q: Position, r: Position, s: Position) {
+    polygon(color: number, p: Position, ...points: Position[]) {
         this.ctx.fillStyle = this.toColor(color);
         this.ctx.beginPath();
         this.ctx.moveTo(...this.toLocal(p));
-        this.ctx.lineTo(...this.toLocal(q));
-        this.ctx.lineTo(...this.toLocal(r));
-        this.ctx.lineTo(...this.toLocal(s));
+        points.forEach(q => this.ctx.lineTo(...this.toLocal(q)));
         this.ctx.fill();
     }
 

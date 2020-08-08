@@ -3,20 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>isom</title>
-        <style>body { display: flex; }</style>
+        <style>
+.flex { display: flex; }
+.dir-container { display: flex; flex-wrap: wrap; width: 320px; }
+.dir { width: 50%; height: 50px; }
+        </style>
     </head>
     <body>
-        <canvas id="main" width="320" height="320"></canvas>
-        <textarea id="heightMap">_555_
+        <div style="display: flex;">
+            <canvas id="main" width="320" height="320"></canvas>
+            <textarea id="heightMap">_555_
 44444
 33333
 22222
 _111_</textarea>
-        <textarea id="colorMap">_555_
+            <textarea id="colorMap">_555_
 44444
 33333
 22222
 _111_</textarea>
+        </div>
+        <div class="dir-container">
+            <button data-dir="1" class="dir">↖</button>
+            <button data-dir="2" class="dir">↗</button>
+            <button data-dir="4" class="dir">↙</button>
+            <button data-dir="3" class="dir">↘</button>
+        </div>
         <script type="module" src="./dist/app.js"></script>
     </body>
 </html>
