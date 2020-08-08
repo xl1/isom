@@ -1,16 +1,19 @@
 <!doctype html>
-<html>
+<html lang="ja">
     <head>
         <meta charset="utf-8">
         <title>isom</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="isom">
         <style>
-.flex { display: flex; }
+.flex { display: flex; flex-wrap: wrap; }
 .dir-container { display: flex; flex-wrap: wrap; width: 320px; }
 .dir { width: 50%; height: 50px; }
+textarea { min-height: 64px; }
         </style>
     </head>
     <body>
-        <div style="display: flex;">
+        <div class="flex">
             <canvas id="main" width="320" height="320"></canvas>
             <textarea id="heightMap">_555_
 44444
